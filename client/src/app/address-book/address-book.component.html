@@ -1,0 +1,116 @@
+<p-toast position="top-center"></p-toast>
+<div class="container">
+    <h2>Please Register Yourself here</h2>
+    <form #userRegisterForm="ngForm">
+        <div class="form-row">
+            <div class="col-2">
+                <input type="text" name="empId" #userID="ngModel" class="form-control" required
+                [(ngModel)]="userRegister.empId" pattern="^[0-9]+$" placeholder="Emp ID">
+                <div *ngIf="userID.touched && userID.dirty">
+                    <span *ngIf="userID.errors?.pattern">
+                        <small class="text-danger">Please enter valid id</small></span>
+                        <span *ngIf="userID.errors?.required">
+                            <small class="text-danger">Please enter valid id</small></span>
+                </div>
+            </div>
+            <div class="col-3">
+                <input type="text" name="firstName" #userFirstName="ngModel" class="form-control" id="firstName"
+                    [(ngModel)]="userRegister.firstName" required pattern="^[a-zA-Z ]*$" placeholder="First Name">
+                <div *ngIf="userFirstName.touched && userFirstName.dirty">
+                    <span *ngIf="userFirstName.errors?.pattern" >
+                        <small class="text-danger">Please enter valid first name</small></span>
+                        <span *ngIf="userFirstName.errors?.required" >
+                            <small class="text-danger">Please enter your first name</small></span>
+                </div>
+            </div>
+            <div class="col-3">
+                <input type="text" name="lastName" #userLastName="ngModel" class="form-control" id="lastName"
+                    [(ngModel)]="userRegister.lastName" required pattern="^[a-zA-Z ]*$" placeholder="Last Name">
+                <span *ngIf="userLastName.touched && userLastName.dirty">
+                    <span *ngIf="userLastName.errors?.pattern" >
+                        <small class="text-danger">Please enter valid last name</small></span>
+                        <span *ngIf="userLastName.errors?.required" >
+                            <small class="text-danger">Please enter your last name</small></span>
+                </span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-4">
+                <input type="email" name="email" #userEmail="ngModel" class="form-control" id="email" [(ngModel)]="userRegister.email" required
+                    appEmailValidator placeholder="Email">
+                <span *ngIf="userEmail.touched && userEmail.dirty">
+                    <span *ngIf="userEmail.touched && userEmail.errors?.isEmailInvalid">
+                        <small class="text-danger">Please enter valid email</small></span>
+                        <span *ngIf="userEmail.touched && userEmail.errors?.isEmailInvalid">
+                            <small class="text-danger">Please enter your email</small></span>
+                </span>
+
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-2">
+                <input type="text" name="teamName" #userTeamName="ngModel" class="form-control" id="teamName"
+                    [(ngModel)]="userRegister.teamName" required pattern="^[a-zA-Z ]*$" placeholder="Team Name">
+                <div *ngIf="userTeamName.touched && userTeamName.dirty">
+                    <span *ngIf="userTeamName.errors?.pattern" >
+                        <small class="text-danger">Please enter valid team name</small></span>
+                        <span *ngIf="userTeamName.errors?.required" >
+                            <small class="text-danger">Please enter your team name</small></span>
+                </div>
+
+            </div>
+            <div class="col-3">
+                <input type="text" name="designation" #userdesignation="ngModel" class="form-control" id="designation"
+                    [(ngModel)]="userRegister.jobTitle" required pattern="^[a-zA-Z ]*$" placeholder="Designation">
+                <div *ngIf="userdesignation.touched && userdesignation.dirty">
+                    <span *ngIf="userdesignation.errors?.pattern" >
+                        <small class="text-danger">Please enter valid designation</small></span>
+                        <span *ngIf="userdesignation.errors?.required" >
+                            <small class="text-danger">Please enter your designation</small></span>
+                </div>
+
+            </div>
+            <div class="col-3">
+
+                <input type="text" name="location" #userLocation="ngModel" class="form-control" id="location"
+                    [(ngModel)]="userRegister.location" required placeholder="Location">
+                <div *ngIf="userLocation.touched && userLocation.dirty">
+                    <span *ngIf="userLocation.errors?.required" >
+                        <small class="text-danger">Please enter your location</small></span>
+                </div>
+
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-4">
+                <input type="text" name="techStack" #userTechStack="ngModel" class="form-control" id="techStack"
+                    [(ngModel)]="userRegister.techStack" required placeholder="Tech Stack">
+                <div *ngIf="userTechStack.touched && userTechStack.dirty">
+                    <span *ngIf="userTechStack.errors?.required">
+                        <small class="text-danger">Please enter your tech stack</small></span>
+                </div>
+
+            </div>
+            <div class="col-3">
+
+                <input type="text" name="experience" #userExperience="ngModel" class="form-control" id="experience"
+                    [(ngModel)]="userRegister.experience" required pattern="^[0-9 ]*$" placeholder="Experience in years">
+                <div *ngIf="userExperience.touched && userExperience.dirty">
+                    <span *ngIf="userExperience.errors?.pattern">
+                        <small>Please enter valid name</small></span>
+                        <span *ngIf="userExperience.errors?.required">
+                            <small class="text-danger">Please enter your years of experience</small></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-1">
+                <button type="submit" class="btn btn-primary" (click)="onRegister();resetUserForm(userRegisterForm);">Register</button>
+            </div>
+            <div class="col-1">
+                <button type="submit" class="btn btn-primary" (click)="onClear();resetUserForm(userRegisterForm);">Clear</button>
+            </div>
+        </div>
+    </form>
+
+</div>

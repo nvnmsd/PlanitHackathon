@@ -1,0 +1,33 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+           <button class="btn btn-link" (click)="location.back()">
+            <i class="pi pi-arrow-left" style="font-size: 15px; padding-right: 5px;"></i>Go Back</button>
+        </div>
+    </div>
+    <dl class="row" style="padding-left: 15px;" *ngIf="selectedUserData">
+        <dt class="col-sm-3">Emp ID</dt>
+            <dd class="col-sm-9">{{selectedUserData.empId}}</dd>
+        <dt class="col-sm-3">First Name</dt>
+            <dd class="col-sm-9">{{selectedUserData.firstName}}</dd>      
+        <dt class="col-sm-3">Last Name</dt>
+            <dd class="col-sm-9">{{selectedUserData.lastName}}</dd>
+        <dt class="col-sm-3">Email</dt>
+            <dd class="col-sm-9">{{selectedUserData.email}}</dd>
+        <dt class="col-sm-3">Job Title</dt>
+            <dd class="col-sm-9">{{selectedUserData.jobTitle}}</dd>
+        <dt class="col-sm-3">Team Name</dt>
+            <dd class="col-sm-9">{{selectedUserData.teamName}}</dd>
+        <dt class="col-sm-3">Experience</dt>
+            <dd class="col-sm-9">{{selectedUserData.experience}}</dd>
+        <dt class="col-sm-3">Location</dt>
+            <dd class="col-sm-9">{{selectedUserData.location}}</dd>
+        <!-- <dt class="col-sm-3">Gender</dt>
+            <dd class="col-sm-9">{{selectedUserData.gender}}</dd> -->
+        <dt class="col-sm-3">Tech Stack</dt>
+            <dd class="col-sm-9">
+                    <li *ngFor="let stack of selectedUserData.techStack">{{stack}}</li>
+            </dd>
+      </dl>
+</div>

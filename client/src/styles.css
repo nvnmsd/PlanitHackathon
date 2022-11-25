@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    /* padding-left: 150px;
+    padding-right: 150px;
+    height: 100%; */
+}
+
+* {
+    background-color: #f8f9fa;
+    color: black;
+}
+
+.nav-item :hover {
+    background-color: #5CB8E4;
+    color: white !important;
+
+}
+
+.isActive {
+    background-color: black;
+    color: white !important;
+}
